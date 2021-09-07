@@ -26,6 +26,10 @@ extern "C" {
 /** Tick Counter united by ms */
 static volatile uint32_t _ulTickCount=0 ;
 
+void setMillis(uint32_t ms) {
+  _ulTickCount = ms ;
+}
+
 unsigned long millis( void )
 {
 // todo: ensure no interrupts

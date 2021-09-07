@@ -28,6 +28,13 @@ extern "C" {
 #endif
 
 /**
+ * \brief Set the millisecond counter to given value. Is useful when dealing with power modes and
+ *        there is a need to forward the counter as it get paused in the lower power modes.
+ * \param ms The new value to set the internal millisecond counter to.
+ */
+extern void setMillis(uint32_t ms);
+
+/**
  * \brief Returns the number of milliseconds since the Arduino board began running the current program.
  *
  * This number will overflow (go back to zero), after approximately 50 days.
