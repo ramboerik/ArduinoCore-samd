@@ -32,6 +32,9 @@
 /** Master clock frequency */
 #define VARIANT_MCK	(F_CPU)
 
+/** Custom board variation */
+#define HW_VERSION_ADAFRUIT_FEATHER
+
 /*----------------------------------------------------------------------------
  *        Headers
  *----------------------------------------------------------------------------*/
@@ -149,7 +152,7 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 /*
  * Wire Interfaces
  */
-#define WIRE_INTERFACES_COUNT 1
+#define WIRE_INTERFACES_COUNT 2
 
 #define PIN_WIRE_SDA         (20u)
 #define PIN_WIRE_SCL         (21u)
@@ -158,6 +161,19 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 
 static const uint8_t SDA = PIN_WIRE_SDA;
 static const uint8_t SCL = PIN_WIRE_SCL;
+
+#ifdef HW_VERSION_ADAFRUIT_FEATHER
+#define PIN_WIRE1_SDA         (11u)
+#define PIN_WIRE1_SCL         (13u)
+#else
+#define PIN_WIRE1_SDA         (25u) // (35u)
+#define PIN_WIRE1_SCL         (26u) // (37u)
+#endif
+#define PERIPH_WIRE1          sercom1
+#define WIRE1_IT_HANDLER      SERCOM1_Handler
+
+static const uint8_t SDA_SENS = PIN_WIRE1_SDA;
+static const uint8_t SCL_SENS = PIN_WIRE1_SCL;
 
 /*
  * USB
