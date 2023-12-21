@@ -33,7 +33,9 @@
 #define VARIANT_MCK	(F_CPU)
 
 /** Custom board variation */
-#define HW_VERSION_ADAFRUIT_FEATHER
+#define HW_VERSION_ADAFRUIT_FEATHER 0
+#define HW_VERSION_ATSAMD21_TRANSCEIVER 1
+#define BOARD_VERSION HW_VERSION_ADAFRUIT_FEATHER
 
 /*----------------------------------------------------------------------------
  *        Headers
@@ -162,7 +164,7 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 static const uint8_t SDA = PIN_WIRE_SDA;
 static const uint8_t SCL = PIN_WIRE_SCL;
 
-#ifdef HW_VERSION_ADAFRUIT_FEATHER
+#if (BOARD_VERSION == HW_VERSION_ADAFRUIT_FEATHER)
 #define PIN_WIRE1_SDA         (11u)
 #define PIN_WIRE1_SCL         (13u)
 #else
