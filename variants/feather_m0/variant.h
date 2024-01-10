@@ -32,11 +32,6 @@
 /** Master clock frequency */
 #define VARIANT_MCK	(F_CPU)
 
-/** Custom board variation */
-#define HW_VERSION_ADAFRUIT_FEATHER 0
-#define HW_VERSION_ATSAMD21_TRANSCEIVER 1
-#define BOARD_VERSION HW_VERSION_ADAFRUIT_FEATHER
-
 /*----------------------------------------------------------------------------
  *        Headers
  *----------------------------------------------------------------------------*/
@@ -164,13 +159,8 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 static const uint8_t SDA = PIN_WIRE_SDA;
 static const uint8_t SCL = PIN_WIRE_SCL;
 
-#if (BOARD_VERSION == HW_VERSION_ADAFRUIT_FEATHER)
 #define PIN_WIRE1_SDA         (11u)
 #define PIN_WIRE1_SCL         (13u)
-#else
-#define PIN_WIRE1_SDA         (25u) // (35u)
-#define PIN_WIRE1_SCL         (26u) // (37u)
-#endif
 #define PERIPH_WIRE1          sercom1
 #define WIRE1_IT_HANDLER      SERCOM1_Handler
 
